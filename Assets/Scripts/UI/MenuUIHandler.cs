@@ -7,6 +7,7 @@ public class MenuUIHandler : MonoBehaviour
 {
     public void StartGame()
     {
+        Debug.Log(DataManager.Instance.animalType);
         SceneManager.LoadScene(1);
     }
 }
