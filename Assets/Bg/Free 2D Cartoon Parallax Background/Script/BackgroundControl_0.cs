@@ -81,7 +81,7 @@ public class BackgroundControl_0 : MonoBehaviour
                 return "Penguin";
                 break;
             default:
-                return "Wrong type";
+                return "Cat";
                 break;
         }
     }
