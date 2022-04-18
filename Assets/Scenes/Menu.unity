@@ -1952,5 +1952,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parallax Controler
       objectReference: {fileID: 0}
+    - target: {fileID: 6696126535788767947, guid: 47c30cdcc90a53740bd04181fb5de5d6, type: 3}
+      propertyPath: Layer_Sprites.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696126535788767947, guid: 47c30cdcc90a53740bd04181fb5de5d6, type: 3}
+      propertyPath: Layer_Sprites.Array.data[20]
+      value: 
+      objectReference: {fileID: 21300000, guid: f0328e3028fda6341a7f32ca37ccd221, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c30cdcc90a53740bd04181fb5de5d6, type: 3}

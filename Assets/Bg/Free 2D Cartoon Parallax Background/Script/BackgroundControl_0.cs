@@ -52,7 +52,7 @@ public class BackgroundControl_0 : MonoBehaviour
     {
         Layer_Object[0].GetComponent<SpriteRenderer>().sprite =
             Layer_Sprites[backgroundNum * 5];
-        for (int i = 1; i < Layer_Object.Length; i++)
+        for (int i = 0; i < Layer_Object.Length; i++)
         {
             Sprite changeSprite = Layer_Sprites[backgroundNum * 5 + i];
 

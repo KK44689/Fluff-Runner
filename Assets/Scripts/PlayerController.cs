@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float m_speed = 3f;
+    private float m_speed = 3f;
 
     public float speed
     {
@@ -19,10 +19,22 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRb;
 
+    private bool isGrounded;
+
+    private ParallaxBackground_0 bgScript;
+
+    public bool isGameActive;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        bgScript =
+            GameObject
+                .Find("Parallax Controler")
+                .GetComponent<ParallaxBackground_0>();
+        isGrounded = true;
+        isGameActive = true;
     }
 
     // Update is called once per frame
@@ -39,9 +51,32 @@ public class PlayerController : MonoBehaviour
 
     void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && isGameActive)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        if (other.gameObject.CompareTag("Obstacles"))
+        {
+            Debug.Log("collide obstacles");
+            m_speed = 0;
+            bgScript.Camera_MoveSpeed = 0;
+            isGameActive = false;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 }
