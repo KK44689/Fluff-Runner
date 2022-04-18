@@ -28,6 +28,24 @@ public class BackgroundControl_0 : MonoBehaviour
         //for presentation without UIs
         // if (Input.GetKeyDown(KeyCode.RightArrow)) NextBG();
         // if (Input.GetKeyDown(KeyCode.LeftArrow)) BackBG();
+        switch (DataManager.Instance.animalType)
+        {
+            case "Chick":
+                SetBG(0);
+                break;
+            case "Sheep":
+                SetBG(1);
+                break;
+            case "Cat":
+                SetBG(2);
+                break;
+            case "Penguin":
+                SetBG(3);
+                break;
+            default:
+                SetBG(2);
+                break;
+        }
     }
 
     void ChangeSprite()
@@ -60,6 +78,7 @@ public class BackgroundControl_0 : MonoBehaviour
     {
         backgroundNum = bgNumber;
         DataManager.Instance.animalType = SetAnimalType(bgNumber);
+
         // if (backgroundNum > max_backgroundNum) backgroundNum = 0;
         ChangeSprite();
     }

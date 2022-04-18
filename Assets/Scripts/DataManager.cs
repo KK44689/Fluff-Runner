@@ -5,7 +5,8 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
-    public string animalType;
+
+    public string animalType = "Chick";
 
     private void Awake()
     {
