@@ -25,12 +25,12 @@ public class IncreaseDifficulty : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerScript.isGameActive)
-        {
-            playerScript.speed = 0;
-            bgScript.Camera_MoveSpeed = 0;
-            StopCoroutine (speedCoroutine);
-        }
+        // if (!playerScript.isGameActive)
+        // {
+        //     // playerScript.speed = 0;
+        //     // bgScript.Camera_MoveSpeed = 0;
+        //     // StopCoroutine (speedCoroutine);
+        // }
     }
 
     IEnumerator IncreaseSpeed()

@@ -23,12 +23,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private float jumpForce = 4f;
+    // private float jumpForce = 4f;
+    protected Rigidbody playerRb;
 
-    private Rigidbody playerRb;
-
-    private bool isGrounded;
+    protected bool isGrounded;
 
     private ParallaxBackground_0 bgScript;
 
@@ -41,39 +39,47 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         bgScript =
-            GameObject
-                .Find("Parallax Controler")
-                .GetComponent<ParallaxBackground_0>();
+            GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
         isGrounded = true;
         isGameActive = true;
         isFoodCollected = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PlayerMove();
         PlayerJump();
         if (isFoodCollected)
         {
-            playerRb
-                .GetComponent<Renderer>()
-                .material
-                .SetColor("_Color", Color.red);
-            Physics
-                .IgnoreCollision(GetComponent<Collider>(),
-                GameObject.FindWithTag("Obstacles").GetComponent<Collider>());
+            // playerRb
+            //     .GetComponent<Renderer>()
+            //     .material
+            //     .SetColor("_Color", Color.red);
+            if (GameObject.FindWithTag("Obstacles") != null)
+            {
+                Physics
+                    .IgnoreCollision(GetComponent<Collider>(),
+                    GameObject
+                        .FindWithTag("Obstacles")
+                        .GetComponent<Collider>());
+            }
         }
         else
         {
-            playerRb
-                .GetComponent<Renderer>()
-                .material
-                .SetColor("_Color", Color.white);
-            Physics
-                .IgnoreCollision(GetComponent<Collider>(),
-                GameObject.FindWithTag("Obstacles").GetComponent<Collider>(),
-                false);
+            // playerRb
+            //     .GetComponent<Renderer>()
+            //     .material
+            //     .SetColor("_Color", Color.white);
+            if (GameObject.FindWithTag("Obstacles") != null)
+            {
+                Physics
+                    .IgnoreCollision(GetComponent<Collider>(),
+                    GameObject
+                        .FindWithTag("Obstacles")
+                        .GetComponent<Collider>(),
+                    false);
+            }
         }
     }
 
@@ -82,11 +88,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * m_speed * Time.deltaTime);
     }
 
-    void PlayerJump()
+    public virtual void PlayerJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && isGameActive)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerRb.AddForce(Vector3.up * 4f, ForceMode.Impulse);
         }
     }
 
