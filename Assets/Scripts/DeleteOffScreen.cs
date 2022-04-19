@@ -6,6 +6,8 @@ public class DeleteOffScreen : MonoBehaviour
 {
     private GameObject Obstacles;
 
+    private GameObject Food;
+
     private GameObject player;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class DeleteOffScreen : MonoBehaviour
     void Update()
     {
         Obstacles = GameObject.FindWithTag("Obstacles");
+        Food = GameObject.FindWithTag("Food");
 
         // int index = Random.Range(0, Obstacles.Length);
         if (Obstacles != null)
@@ -28,6 +31,13 @@ public class DeleteOffScreen : MonoBehaviour
             )
             {
                 Destroy (Obstacles);
+            }
+        }
+        if (Food != null)
+        {
+            if (Food.transform.position.x < player.transform.position.x - 14f)
+            {
+                Destroy (Food);
             }
         }
     }

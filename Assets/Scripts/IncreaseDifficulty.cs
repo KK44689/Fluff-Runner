@@ -8,6 +8,8 @@ public class IncreaseDifficulty : MonoBehaviour
 
     private ParallaxBackground_0 bgScript;
 
+    private Coroutine speedCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,23 +19,29 @@ public class IncreaseDifficulty : MonoBehaviour
             GameObject
                 .Find("Parallax Controler")
                 .GetComponent<ParallaxBackground_0>();
-        StartCoroutine(IncreaseSpeed());
+        speedCoroutine = StartCoroutine(IncreaseSpeed());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!playerScript.isGameActive)
+        {
+            playerScript.speed = 0;
+            bgScript.Camera_MoveSpeed = 0;
+            StopCoroutine (speedCoroutine);
+        }
     }
 
     IEnumerator IncreaseSpeed()
     {
         while (playerScript.isGameActive)
         {
-            Debug.Log("start coroutine ");
+            // Debug.Log("start coroutine ");
             yield return new WaitForSeconds(5);
             playerScript.speed += 0.2f;
             bgScript.Camera_MoveSpeed += 0.2f;
-            // Debug.Log("player speed " + playerScript.speed);
+            Debug.Log("player speed " + playerScript.speed);
         }
     }
 }

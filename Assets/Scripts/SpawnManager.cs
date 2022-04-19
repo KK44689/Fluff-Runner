@@ -16,6 +16,8 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 SpawnFoodPos;
 
+    private Coroutine foodSpawnCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class SpawnManager : MonoBehaviour
         if (!playerScript.isGameActive)
         {
             CancelInvoke();
+            StopCoroutine (foodSpawnCoroutine);
         }
     }
 
@@ -44,13 +47,13 @@ public class SpawnManager : MonoBehaviour
             Instantiate(Obstacles[index],
             SpawnObstaclesPos,
             Obstacles[index].transform.rotation);
-        StartCoroutine(SpawnFood(ObstacleClone));
+        foodSpawnCoroutine = StartCoroutine(SpawnFood(ObstacleClone));
     }
 
     IEnumerator SpawnFood(GameObject Obstacle)
     {
         Debug.Log("start coroutine food");
-        float foodSpawnTime = Random.Range(3, 5);
+        float foodSpawnTime = Random.Range(5,10);
         yield return new WaitForSeconds(foodSpawnTime);
         int index = 0;
         SpawnFoodPos =

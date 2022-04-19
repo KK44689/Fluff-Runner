@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isGameActive { get; set; }
 
+    private bool isFoodCollected;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
                 .GetComponent<ParallaxBackground_0>();
         isGrounded = true;
         isGameActive = true;
+        isFoodCollected = false;
     }
 
     // Update is called once per frame
@@ -51,6 +54,27 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMove();
         PlayerJump();
+        if (isFoodCollected)
+        {
+            playerRb
+                .GetComponent<Renderer>()
+                .material
+                .SetColor("_Color", Color.red);
+            Physics
+                .IgnoreCollision(GetComponent<Collider>(),
+                GameObject.FindWithTag("Obstacles").GetComponent<Collider>());
+        }
+        else
+        {
+            playerRb
+                .GetComponent<Renderer>()
+                .material
+                .SetColor("_Color", Color.white);
+            Physics
+                .IgnoreCollision(GetComponent<Collider>(),
+                GameObject.FindWithTag("Obstacles").GetComponent<Collider>(),
+                false);
+        }
     }
 
     void PlayerMove()
@@ -64,6 +88,12 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    IEnumerator GetFood()
+    {
+        yield return new WaitForSeconds(8);
+        isFoodCollected = false;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -86,6 +116,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Food"))
         {
             Destroy(other.gameObject);
+            isFoodCollected = true;
+            StartCoroutine(GetFood());
         }
     }
 
