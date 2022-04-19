@@ -474,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049998121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.24, z: -1.02}
+  m_LocalPosition: {x: 0, y: -4.24, z: -1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -508,7 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095d502169a29a94ea47e1558d33b17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 3
   jumpForce: 40
 --- !u!1 &1265508004 stripped
 GameObject:
@@ -526,6 +525,7 @@ GameObject:
   - component: {fileID: 1453021945}
   - component: {fileID: 1453021944}
   - component: {fileID: 1453021943}
+  - component: {fileID: 1453021946}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -559,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacles:
   - {fileID: 360129831855195729, guid: b549633cdfc422747bdce021f14eadaf, type: 3}
+  Foods:
+  - {fileID: 8215852405489675718, guid: 60e9df48ff8a63a43893c2635207d708, type: 3}
 --- !u!4 &1453021945
 Transform:
   m_ObjectHideFlags: 0
@@ -573,6 +575,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1453021946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453021942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11aac6e4bf886cc4bb04c2f795d1bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1681327268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -741,7 +755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767342265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.1, z: 0}
+  m_LocalPosition: {x: 0, y: -5.1, z: 0}
   m_LocalScale: {x: 8, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

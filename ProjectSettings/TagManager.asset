@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacles
   - Ground
+  - Food
   layers:
   - Default
   - TransparentFX

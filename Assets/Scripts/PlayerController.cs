@@ -12,6 +12,15 @@ public class PlayerController : MonoBehaviour
         {
             return m_speed;
         }
+        set
+        {
+            if (m_speed < 0)
+            {
+                Debug.Log("player speed can't be negative!");
+                return;
+            }
+            m_speed = value;
+        }
     }
 
     [SerializeField]
@@ -23,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private ParallaxBackground_0 bgScript;
 
-    public bool isGameActive;
+    public bool isGameActive { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +78,14 @@ public class PlayerController : MonoBehaviour
             m_speed = 0;
             bgScript.Camera_MoveSpeed = 0;
             isGameActive = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Food"))
+        {
+            Destroy(other.gameObject);
         }
     }
 

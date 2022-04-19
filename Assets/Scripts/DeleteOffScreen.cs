@@ -20,9 +20,15 @@ public class DeleteOffScreen : MonoBehaviour
         Obstacles = GameObject.FindWithTag("Obstacles");
 
         // int index = Random.Range(0, Obstacles.Length);
-        if (Obstacles.transform.position.x < player.transform.position.x - 14f)
+        if (Obstacles != null)
         {
-            Destroy (Obstacles);
+            if (
+                Obstacles.transform.position.x <
+                player.transform.position.x - 14f
+            )
+            {
+                Destroy (Obstacles);
+            }
         }
     }
 }
