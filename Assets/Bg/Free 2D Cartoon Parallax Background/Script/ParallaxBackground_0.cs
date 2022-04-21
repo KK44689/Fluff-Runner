@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParallaxBackground_0 : MonoBehaviour
 {
@@ -13,15 +14,19 @@ public class ParallaxBackground_0 : MonoBehaviour
 
     public GameObject[] Layer_Objects = new GameObject[7];
 
-    private Transform _camera;
+    protected Transform _camera;
 
-    private float[] startPos = new float[7];
+    protected float[] startPos = new float[7];
 
-    private float boundSizeX;
+    protected float boundSizeX;
 
-    private float sizeX;
+    protected float sizeX;
 
-    private GameObject Layer_0;
+    protected GameObject Layer_0;
+
+    protected GameObject player;
+
+    protected int sceneIndex;
 
     void Start()
     {
@@ -38,6 +43,8 @@ public class ParallaxBackground_0 : MonoBehaviour
         {
             startPos[i] = _camera.position.x;
         }
+        player = GameObject.FindWithTag("Player");
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()
@@ -45,15 +52,49 @@ public class ParallaxBackground_0 : MonoBehaviour
         //Moving camera
         if (Camera_Move)
         {
-            _camera.position +=
-                Vector3.right * Time.deltaTime * Camera_MoveSpeed;
+            // if (sceneIndex == 1)
+            // {
+            //     _camera.position =
+            //         new Vector3(player.transform.position.x + 7f,
+            //             _camera.position.y,
+            //             _camera.position.z);
+            // }
+            // _camera.position +=
+            //     Vector3.right * Time.deltaTime * Camera_MoveSpeed;
+            MoveCamera();
         }
+
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     float temp = (_camera.position.x * (1 - Layer_Speed[i]));
+        //     float distance = _camera.position.x * Layer_Speed[i];
+        //     Layer_Objects[i].transform.position =
+        //         new Vector2(startPos[i] + distance, _camera.position.y + 3f);
+        //     if (temp > startPos[i] + boundSizeX * sizeX)
+        //     {
+        //         startPos[i] += boundSizeX * sizeX;
+        //     }
+        //     else if (temp < startPos[i] - boundSizeX * sizeX)
+        //     {
+        //         startPos[i] -= boundSizeX * sizeX;
+        //     }
+        // }
+        SetLayerSpeed();
+    }
+
+    public virtual void MoveCamera()
+    {
+        _camera.position += Vector3.right * Time.deltaTime * Camera_MoveSpeed;
+    }
+
+    public virtual void SetLayerSpeed()
+    {
         for (int i = 0; i < 5; i++)
         {
             float temp = (_camera.position.x * (1 - Layer_Speed[i]));
             float distance = _camera.position.x * Layer_Speed[i];
             Layer_Objects[i].transform.position =
-                new Vector2(startPos[i] + distance, _camera.position.y + 3f);
+                new Vector2(startPos[i] + distance, _camera.position.y);
             if (temp > startPos[i] + boundSizeX * sizeX)
             {
                 startPos[i] += boundSizeX * sizeX;

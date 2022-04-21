@@ -1827,6 +1827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 897606224}
     m_Modifications:
+    - target: {fileID: 3969348118828276539, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3969348119239713800, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
       propertyPath: m_Name
       value: Background_Layers
@@ -1853,15 +1857,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3969348119239713803, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3969348119239713803, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3969348119239713803, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3969348119239713803, guid: 7bc82ae630017ec46878d9036876ccb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

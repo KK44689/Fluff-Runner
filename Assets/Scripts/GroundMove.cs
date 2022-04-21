@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class GroundMove : MonoBehaviour
 {
-    private PlayerController playerScript;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScript =
-            GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * playerScript.speed * Time.deltaTime);
+        transform.position = new Vector3(player.transform.position.x, -5f, -4f);
     }
 }

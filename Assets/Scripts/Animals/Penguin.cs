@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : PlayerController
+public class Penguin : PlayerController
 {
-    private SpawnManager spawnManagerCatScript;
+    private SpawnManager spawnManagerPenguinScript;
 
-    private Rigidbody catRb;
+    private Rigidbody penguinRb;
 
     void Start()
     {
-        spawnManagerCatScript =
+        spawnManagerPenguinScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        catRb =
+        penguinRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
     }
 
@@ -21,10 +21,10 @@ public class Cat : PlayerController
         if (
             Input.GetKeyDown(KeyCode.Space) &&
             isGrounded &&
-            spawnManagerCatScript.isGameActive
+            spawnManagerPenguinScript.isGameActive
         )
         {
-            catRb.AddForce(Vector3.up * 50f, ForceMode.Impulse);
+            penguinRb.AddForce(Vector3.up * 35f, ForceMode.Impulse);
         }
     }
 }

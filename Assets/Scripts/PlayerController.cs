@@ -30,9 +30,12 @@ public class PlayerController : MonoBehaviour
 
     private ParallaxBackground_0 bgScript;
 
-    public bool isGameActive { get; set; }
+    // public bool isGameActive { get; set; }
+    private SpawnManager spawnManagerScript;
 
     private bool isFoodCollected;
+
+    public bool hasCollideObstacle { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -41,21 +44,21 @@ public class PlayerController : MonoBehaviour
         bgScript =
             GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
         isGrounded = true;
-        isGameActive = true;
+
+        // isGameActive = true;
+        spawnManagerScript =
+            GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         isFoodCollected = false;
+        hasCollideObstacle = false;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         PlayerMove();
         PlayerJump();
         if (isFoodCollected)
         {
-            // playerRb
-            //     .GetComponent<Renderer>()
-            //     .material
-            //     .SetColor("_Color", Color.red);
             if (GameObject.FindWithTag("Obstacles") != null)
             {
                 Physics
@@ -67,10 +70,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // playerRb
-            //     .GetComponent<Renderer>()
-            //     .material
-            //     .SetColor("_Color", Color.white);
             if (GameObject.FindWithTag("Obstacles") != null)
             {
                 Physics
@@ -90,7 +89,11 @@ public class PlayerController : MonoBehaviour
 
     public virtual void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && isGameActive)
+        if (
+            Input.GetKeyDown(KeyCode.Space) &&
+            isGrounded &&
+            spawnManagerScript.isGameActive
+        )
         {
             playerRb.AddForce(Vector3.up * 4f, ForceMode.Impulse);
         }
@@ -112,8 +115,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("collide obstacles");
             m_speed = 0;
-            bgScript.Camera_MoveSpeed = 0;
-            isGameActive = false;
+
+            // bgScript.Camera_MoveSpeed = 0;
+            hasCollideObstacle = true;
         }
     }
 

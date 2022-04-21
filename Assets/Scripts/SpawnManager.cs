@@ -8,6 +8,10 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject[] Foods;
 
+    public GameObject[] Player;
+
+    private Vector3 spawnPlayerPos;
+
     private GameObject player;
 
     private GameObject ground;
@@ -18,28 +22,60 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 SpawnFoodPos;
 
-    private Coroutine foodSpawnCoroutine;
+    public bool isGameActive { get; set; }
+
+    private Coroutine spawnObstacles;
+
+    private Coroutine spawnFood;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        ActivePlayer();
+    }
+
     void Start()
     {
-        InvokeRepeating("SpawnObstacles", 0f, 3f);
+        // SpawnPlayer();
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerController>();
-        StartCoroutine(SpawnFood());
-        StartCoroutine(SpawnObstacles());
+        isGameActive = true;
+        spawnFood = StartCoroutine(SpawnFood());
+        spawnObstacles = StartCoroutine(SpawnObstacles());
+
         ground = GameObject.FindWithTag("Ground");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player.GetComponent<PlayerController>().hasCollideObstacle)
+        {
+            isGameActive = false;
+        }
+    }
 
+    void ActivePlayer()
+    {
+        switch (DataManager.Instance.animalType)
+        {
+            case "Cat":
+                Player[0].SetActive(true);
+                break;
+            case "Chick":
+                Player[1].SetActive(true);
+                break;
+            case "Sheep":
+                Player[2].SetActive(true);
+                break;
+            case "Penguin":
+                Player[3].SetActive(true);
+                break;
+        }
     }
 
     IEnumerator SpawnObstacles()
     {
-        while (playerScript.isGameActive)
+        while (isGameActive)
         {
             yield return new WaitForSeconds(3);
             int index = Random.Range(0, Obstacles.Length);
@@ -55,7 +91,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnFood()
     {
-        while (playerScript.isGameActive)
+        while (isGameActive)
         {
             float randX = Random.Range(2.5f, 13.5f);
             float foodSpawnTime = Random.Range(5, 10);
