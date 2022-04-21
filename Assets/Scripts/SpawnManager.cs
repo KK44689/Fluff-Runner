@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] Foods;
 
     public GameObject[] Player;
+
+    public Text distanceText;
 
     private Vector3 spawnPlayerPos;
 
@@ -48,6 +51,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameActive)
+        {
+            ShowDistances();
+        }
         if (player.GetComponent<PlayerController>().hasCollideObstacle)
         {
             isGameActive = false;
@@ -105,5 +112,11 @@ public class SpawnManager : MonoBehaviour
             SpawnFoodPos,
             Foods[index].transform.rotation);
         }
+    }
+
+    void ShowDistances()
+    {
+        distanceText.text =
+            "Distance : " + (int) player.transform.position.x + " m";
     }
 }
