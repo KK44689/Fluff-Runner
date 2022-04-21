@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Food
   - BG
+  - FoodIndicator
   layers:
   - Default
   - TransparentFX

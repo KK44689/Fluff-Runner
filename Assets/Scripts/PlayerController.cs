@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public bool hasCollideObstacle { get; private set; }
 
+    public GameObject foodIndicator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         isFoodCollected = false;
         hasCollideObstacle = false;
+        foodIndicator.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,6 +62,8 @@ public class PlayerController : MonoBehaviour
         PlayerJump();
         if (isFoodCollected)
         {
+            foodIndicator.SetActive(true);
+
             if (GameObject.FindWithTag("Obstacles") != null)
             {
                 Physics
@@ -70,6 +75,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            foodIndicator.SetActive(false);
+
             if (GameObject.FindWithTag("Obstacles") != null)
             {
                 Physics
