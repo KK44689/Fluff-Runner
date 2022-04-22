@@ -57,14 +57,10 @@ public class PlayerController : MonoBehaviour
         foodIndicator.SetActive(false);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         PlayerMove();
         PlayerJump();
-    }
-
-    void Update()
-    {
         if (isFoodCollected)
         {
             foodIndicator.SetActive(true);
@@ -113,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GetFood()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(5);
         isFoodCollected = false;
     }
 
@@ -149,9 +145,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
             playerAnim.SetBool("Walk", false);
             playerAnim.SetBool("Jump", true);
+            isGrounded = false;
+            // playerAnim.SetBool("Walk", false);
+            // playerAnim.SetBool("Jump", true);
         }
     }
 }

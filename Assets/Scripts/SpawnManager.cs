@@ -101,7 +101,7 @@ public class SpawnManager : MonoBehaviour
         while (isGameActive)
         {
             float randX = Random.Range(2.5f, 13.5f);
-            float foodSpawnTime = Random.Range(5, 10);
+            float foodSpawnTime = Random.Range(8, 15);
             yield return new WaitForSeconds(foodSpawnTime);
             switch (DataManager.Instance.animalType)
             {
