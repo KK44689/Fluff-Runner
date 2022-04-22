@@ -8,12 +8,17 @@ public class Sheep : PlayerController
 
     private Rigidbody sheepRb;
 
+    AudioSource audioSource;
+
+    public AudioClip jumpSound;
+
     void Start()
     {
         spawnManagerSheepScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         sheepRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void PlayerJump()
@@ -25,6 +30,7 @@ public class Sheep : PlayerController
         )
         {
             sheepRb.AddForce(Vector3.up * 40f, ForceMode.Impulse);
+            audioSource.PlayOneShot (jumpSound);
         }
     }
 }

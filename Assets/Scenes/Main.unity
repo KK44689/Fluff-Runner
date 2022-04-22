@@ -519,7 +519,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a7c08cc0697a6034f9302745909408a1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -910,6 +910,18 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+    - target: {fileID: 8514331709483760985, guid: 5a9ba1e5a30df284c86146081e553395, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 533131114}
+    - target: {fileID: 8514331709483760985, guid: 5a9ba1e5a30df284c86146081e553395, type: 3}
+      propertyPath: collideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    - target: {fileID: 8514331709483760985, guid: 5a9ba1e5a30df284c86146081e553395, type: 3}
+      propertyPath: collectFoodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a9ba1e5a30df284c86146081e553395, type: 3}
 --- !u!1 &533131113 stripped
@@ -1369,6 +1381,18 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+    - target: {fileID: 3787193734130794535, guid: 01c2b2db5fc20ad428aa4ad4b9c556ac, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1380632551}
+    - target: {fileID: 3787193734130794535, guid: 01c2b2db5fc20ad428aa4ad4b9c556ac, type: 3}
+      propertyPath: collideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    - target: {fileID: 3787193734130794535, guid: 01c2b2db5fc20ad428aa4ad4b9c556ac, type: 3}
+      propertyPath: collectFoodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01c2b2db5fc20ad428aa4ad4b9c556ac, type: 3}
 --- !u!1 &1380632550 stripped
@@ -1483,6 +1507,18 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+    - target: {fileID: 946306316, guid: 81cbc14c68302b146a40f853410469d9, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1448581026}
+    - target: {fileID: 946306316, guid: 81cbc14c68302b146a40f853410469d9, type: 3}
+      propertyPath: collideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    - target: {fileID: 946306316, guid: 81cbc14c68302b146a40f853410469d9, type: 3}
+      propertyPath: collectFoodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     - target: {fileID: 1722930624166378249, guid: 81cbc14c68302b146a40f853410469d9, type: 3}
       propertyPath: m_Name
       value: Cat
@@ -2330,6 +2366,18 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+    - target: {fileID: 4994664828286913194, guid: f65ed04a1c800694a9a4e2303e50c7c8, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 7660929092086831649}
+    - target: {fileID: 4994664828286913194, guid: f65ed04a1c800694a9a4e2303e50c7c8, type: 3}
+      propertyPath: collideSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    - target: {fileID: 4994664828286913194, guid: f65ed04a1c800694a9a4e2303e50c7c8, type: 3}
+      propertyPath: collectFoodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f65ed04a1c800694a9a4e2303e50c7c8, type: 3}
 --- !u!1 &7660929092086831648 stripped

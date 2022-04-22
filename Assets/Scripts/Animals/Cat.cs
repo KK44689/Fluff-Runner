@@ -18,6 +18,7 @@ public class Cat : PlayerController
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         catRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
+
         audioSource = GetComponent<AudioSource>();
     }
 

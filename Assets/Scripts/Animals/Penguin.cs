@@ -8,12 +8,17 @@ public class Penguin : PlayerController
 
     private Rigidbody penguinRb;
 
+    AudioSource audioSource;
+
+    public AudioClip jumpSound;
+
     void Start()
     {
         spawnManagerPenguinScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         penguinRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void PlayerJump()
@@ -25,6 +30,7 @@ public class Penguin : PlayerController
         )
         {
             penguinRb.AddForce(Vector3.up * 35f, ForceMode.Impulse);
+            audioSource.PlayOneShot (jumpSound);
         }
     }
 }

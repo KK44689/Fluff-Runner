@@ -8,12 +8,17 @@ public class Chick : PlayerController
 
     private Rigidbody chickRb;
 
+    AudioSource audioSource;
+
+    public AudioClip jumpSound;
+
     void Start()
     {
         spawnManagerChickScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         chickRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void PlayerJump()
@@ -25,6 +30,7 @@ public class Chick : PlayerController
         )
         {
             chickRb.AddForce(Vector3.up * 45f, ForceMode.Impulse);
+            audioSource.PlayOneShot (jumpSound);
         }
     }
 }

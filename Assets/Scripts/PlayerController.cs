@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
 
     public Animator playerAnim;
 
+    public AudioSource audioSource;
+
+    public AudioClip collideSound;
+
+    public AudioClip collectFoodSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,7 +131,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("collide obstacles");
             m_speed = 0;
 
-            // bgScript.Camera_MoveSpeed = 0;
+            audioSource.PlayOneShot (collideSound);
             hasCollideObstacle = true;
         }
     }
@@ -135,6 +141,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Food"))
         {
             Destroy(other.gameObject);
+            audioSource.PlayOneShot (collectFoodSound);
             isFoodCollected = true;
             StartCoroutine(GetFood());
         }
@@ -147,8 +154,6 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool("Walk", false);
             playerAnim.SetBool("Jump", true);
             isGrounded = false;
-            // playerAnim.SetBool("Walk", false);
-            // playerAnim.SetBool("Jump", true);
         }
     }
 }
