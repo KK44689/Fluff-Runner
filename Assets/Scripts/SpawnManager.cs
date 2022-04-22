@@ -25,6 +25,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 SpawnFoodPos;
 
+    // ENCAPSULATION
     public bool isGameActive { get; set; }
 
     private Coroutine spawnObstacles;
@@ -39,7 +40,6 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        // SpawnPlayer();
         player = GameObject.FindWithTag("Player");
         isGameActive = true;
         spawnFood = StartCoroutine(SpawnFood());
@@ -61,6 +61,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void ActivePlayer()
     {
         switch (DataManager.Instance.animalType)
@@ -80,6 +81,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     IEnumerator SpawnObstacles()
     {
         while (isGameActive)
@@ -96,6 +98,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     IEnumerator SpawnFood()
     {
         while (isGameActive)
@@ -145,6 +148,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void ShowDistances()
     {
         distanceText.text =

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float m_speed = 3f;
 
+    // ENCAPSULATION
     public float speed
     {
         get
@@ -23,18 +24,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // private float jumpForce = 4f;
     protected Rigidbody playerRb;
 
     protected bool isGrounded;
 
     private ParallaxBackground_0 bgScript;
 
-    // public bool isGameActive { get; set; }
     private SpawnManager spawnManagerScript;
 
     private bool isFoodCollected;
 
+    // ENCAPSULATION
     public bool hasCollideObstacle { get; private set; }
 
     public GameObject foodIndicator;
@@ -95,11 +95,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     void PlayerMove()
     {
         transform.Translate(Vector3.right * m_speed * Time.deltaTime);
     }
 
+    // ABSTRACTION & // POLYMORPHISM
     public virtual void PlayerJump()
     {
         if (
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     IEnumerator GetFood()
     {
         yield return new WaitForSeconds(5);

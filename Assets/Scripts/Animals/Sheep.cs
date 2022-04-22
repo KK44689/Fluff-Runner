@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Sheep : PlayerController
 {
     private SpawnManager spawnManagerSheepScript;
@@ -21,6 +22,7 @@ public class Sheep : PlayerController
         audioSource = GetComponent<AudioSource>();
     }
 
+    // POLYMORPHISM
     public override void PlayerJump()
     {
         if (

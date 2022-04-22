@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Cat : PlayerController
 {
     private SpawnManager spawnManagerCatScript;
@@ -22,6 +23,7 @@ public class Cat : PlayerController
         audioSource = GetComponent<AudioSource>();
     }
 
+    // POLYMORPHISM
     public override void PlayerJump()
     {
         if (

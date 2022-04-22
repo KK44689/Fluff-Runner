@@ -34,19 +34,16 @@ public class IncreaseDifficulty : MonoBehaviour
         {
             playerScript.speed = 0;
             StopCoroutine (speedCoroutine);
-            Debug.Log("increase speed " + spawnManagerScript.isGameActive);
         }
     }
 
+    // ABSTRACTION
     IEnumerator IncreaseSpeed()
     {
         while (spawnManagerScript.isGameActive)
         {
             yield return new WaitForSeconds(5);
             playerScript.speed += 0.2f;
-
-            // bgScript.Camera_MoveSpeed += 0.2f;
-            Debug.Log("player speed " + playerScript.speed);
         }
     }
 }

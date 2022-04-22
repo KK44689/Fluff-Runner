@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance;
+    // ENCAPSULATION
+    public static DataManager Instance { get; private set; }
 
     public string animalType = "Chick";
 
