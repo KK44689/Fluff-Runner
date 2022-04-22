@@ -1689,7 +1689,9 @@ MonoBehaviour:
   - {fileID: 360129831855195729, guid: acd08315d90115f489fd6a5b9eab1014, type: 3}
   - {fileID: 360129831855195729, guid: 657bb5802c2205e44a694b42bc0ebaf6, type: 3}
   Foods:
-  - {fileID: 8215852405489675718, guid: 60e9df48ff8a63a43893c2635207d708, type: 3}
+  - {fileID: 8215852405489675718, guid: a17094952080e364f9ddf846f1d9a869, type: 3}
+  - {fileID: 8215852405489675718, guid: 8a10d1bb1fcf7624ab9767f6fc6ed9e1, type: 3}
+  - {fileID: 8215852405489675718, guid: b557c651f114c7d47ae5c1bbd46b4fd0, type: 3}
   Player:
   - {fileID: 1448581025}
   - {fileID: 7660929092086831648}

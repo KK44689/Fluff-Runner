@@ -103,14 +103,45 @@ public class SpawnManager : MonoBehaviour
             float randX = Random.Range(2.5f, 13.5f);
             float foodSpawnTime = Random.Range(5, 10);
             yield return new WaitForSeconds(foodSpawnTime);
-            int index = 0;
-            SpawnFoodPos =
-                new Vector3(player.transform.position.x + randX,
-                    ground.transform.position.y + 3f,
-                    player.transform.position.z);
-            Instantiate(Foods[index],
-            SpawnFoodPos,
-            Foods[index].transform.rotation);
+            switch (DataManager.Instance.animalType)
+            {
+                case "Cat":
+                    SpawnFoodPos =
+                        new Vector3(player.transform.position.x + randX,
+                            ground.transform.position.y + 3f,
+                            player.transform.position.z);
+                    Instantiate(Foods[1],
+                    SpawnFoodPos,
+                    Foods[1].transform.rotation);
+                    break;
+                case "Chick":
+                    SpawnFoodPos =
+                        new Vector3(player.transform.position.x + randX,
+                            ground.transform.position.y + 3f,
+                            player.transform.position.z);
+                    Instantiate(Foods[0],
+                    SpawnFoodPos,
+                    Foods[0].transform.rotation);
+                    break;
+                case "Sheep":
+                    SpawnFoodPos =
+                        new Vector3(player.transform.position.x + randX,
+                            ground.transform.position.y + 3f,
+                            player.transform.position.z);
+                    Instantiate(Foods[2],
+                    SpawnFoodPos,
+                    Foods[2].transform.rotation);
+                    break;
+                case "Penguin":
+                    SpawnFoodPos =
+                        new Vector3(player.transform.position.x + randX,
+                            ground.transform.position.y + 3f,
+                            player.transform.position.z);
+                    Instantiate(Foods[1],
+                    SpawnFoodPos,
+                    Foods[1].transform.rotation);
+                    break;
+            }
         }
     }
 

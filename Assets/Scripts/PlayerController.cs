@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerAnim =
+        // playerAnim =
             // GameObject.FindWithTag("Player").transform.GetComponentInChildren<Animator>();
         bgScript =
             GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
