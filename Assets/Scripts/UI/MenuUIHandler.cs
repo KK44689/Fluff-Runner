@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuUIHandler : MonoBehaviour
 {
+    public AudioSource audioSource;
+
+    public AudioClip clickSound;
+
     public void StartGame()
     {
         if (DataManager.Instance.animalType == null)
@@ -13,5 +17,10 @@ public class MenuUIHandler : MonoBehaviour
         }
         Debug.Log(DataManager.Instance.animalType);
         SceneManager.LoadScene(1);
+    }
+
+    public void PlayClickSound()
+    {
+        audioSource.PlayOneShot (clickSound);
     }
 }

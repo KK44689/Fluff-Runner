@@ -9,6 +9,10 @@ public class MainUIHandler : MonoBehaviour
 
     public GameObject GameOverScreen;
 
+    public AudioSource audioSource;
+
+    public AudioClip clickSound;
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -17,6 +21,11 @@ public class MainUIHandler : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void PlayClickSound()
+    {
+        audioSource.PlayOneShot (clickSound);
     }
 
     void Start()
