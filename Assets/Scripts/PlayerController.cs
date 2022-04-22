@@ -39,10 +39,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject foodIndicator;
 
+    Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnim =
+            // GameObject.FindWithTag("Player").transform.GetComponentInChildren<Animator>();
         bgScript =
             GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
         isGrounded = true;
@@ -92,6 +96,9 @@ public class PlayerController : MonoBehaviour
     void PlayerMove()
     {
         transform.Translate(Vector3.right * m_speed * Time.deltaTime);
+
+        // Debug.Log(player.name);
+        // playerAnim.SetTrigger("Walk");
     }
 
     public virtual void PlayerJump()
@@ -103,6 +110,7 @@ public class PlayerController : MonoBehaviour
         )
         {
             playerRb.AddForce(Vector3.up * 4f, ForceMode.Impulse);
+            // playerAnim.SetTrigger("Idle");
         }
     }
 
