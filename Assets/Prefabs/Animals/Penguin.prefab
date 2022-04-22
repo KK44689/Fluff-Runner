@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodIndicator: {fileID: 1756089751101321549}
+  playerAnim: {fileID: 2754550065049547346}
 --- !u!1001 &1755682378077817221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,5 +280,10 @@ PrefabInstance:
 --- !u!4 &2754550065058794090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475374, guid: 8280ad2f586477b47ac0d3d3e444e3aa, type: 3}
+  m_PrefabInstance: {fileID: 2754550065058843268}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2754550065049547346 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9582806, guid: 8280ad2f586477b47ac0d3d3e444e3aa, type: 3}
   m_PrefabInstance: {fileID: 2754550065058843268}
   m_PrefabAsset: {fileID: 0}

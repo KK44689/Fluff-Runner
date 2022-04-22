@@ -39,14 +39,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject foodIndicator;
 
-    Animator playerAnim;
+    public Animator playerAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        // playerAnim =
-            // GameObject.FindWithTag("Player").transform.GetComponentInChildren<Animator>();
         bgScript =
             GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
         isGrounded = true;
@@ -59,11 +57,14 @@ public class PlayerController : MonoBehaviour
         foodIndicator.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PlayerMove();
         PlayerJump();
+    }
+
+    void Update()
+    {
         if (isFoodCollected)
         {
             foodIndicator.SetActive(true);
@@ -96,9 +97,6 @@ public class PlayerController : MonoBehaviour
     void PlayerMove()
     {
         transform.Translate(Vector3.right * m_speed * Time.deltaTime);
-
-        // Debug.Log(player.name);
-        // playerAnim.SetTrigger("Walk");
     }
 
     public virtual void PlayerJump()
@@ -110,7 +108,6 @@ public class PlayerController : MonoBehaviour
         )
         {
             playerRb.AddForce(Vector3.up * 4f, ForceMode.Impulse);
-            // playerAnim.SetTrigger("Idle");
         }
     }
 
@@ -125,6 +122,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            playerAnim.SetBool("Walk", true);
+            playerAnim.SetBool("Jump", false);
         }
         if (other.gameObject.CompareTag("Obstacles"))
         {
@@ -151,6 +150,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            playerAnim.SetBool("Walk", false);
+            playerAnim.SetBool("Jump", true);
         }
     }
 }
