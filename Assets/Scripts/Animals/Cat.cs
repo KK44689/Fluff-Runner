@@ -8,12 +8,17 @@ public class Cat : PlayerController
 
     private Rigidbody catRb;
 
+    AudioSource audioSource;
+
+    public AudioClip jumpSound;
+
     void Start()
     {
         spawnManagerCatScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         catRb =
             GameObject.FindWithTag("Player").GetComponentInParent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void PlayerJump()
@@ -25,6 +30,7 @@ public class Cat : PlayerController
         )
         {
             catRb.AddForce(Vector3.up * 50f, ForceMode.Impulse);
+            audioSource.PlayOneShot (jumpSound);
         }
     }
 }

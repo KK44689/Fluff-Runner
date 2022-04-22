@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
             GameObject.FindWithTag("BG").GetComponent<ParallaxBackground_0>();
         isGrounded = true;
 
-        // isGameActive = true;
         spawnManagerScript =
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         isFoodCollected = false;
